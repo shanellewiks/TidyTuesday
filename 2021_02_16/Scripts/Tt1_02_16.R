@@ -38,15 +38,15 @@ freed_slaves %>%
                      expand = c(0,0)
                      )+ 
   scale_y_continuous(expand = c(0,0))+#set axis to top
-  coord_cartesian(clip = "off")+
+  coord_cartesian(clip = "off")+ #allow annotations outside of graph 
   geom_text(aes(x = 1825, 
                 y = 55, 
-                label = "SLAVES \n\nESCALVES"), 
+                label = "SLAVES \n\nESCALVES"), #adding label for slaves
             colour = "white", 
             size = 9)+
   geom_text(aes(x = 1825, 
                 y = 90, 
-                label = "FREE - LIBRE"), 
+                label = "FREE - LIBRE"), #adding label for freemen
             colour = "black", 
             size = 9)+
   geom_text(aes(x = 1790, 
@@ -54,7 +54,7 @@ freed_slaves %>%
                 label = "8%"))+
   geom_text(aes(x = 1800, 
                 y = 90, 
-                label = "11%"))+
+                label = "11%"))+ #adding percentage freemen
   geom_text(aes(x = 1810, 
                 y = 88, 
                 label = "13.5%"))+
@@ -79,9 +79,9 @@ freed_slaves %>%
   labs(title = "PROPORTION OF FREEMEN AND SLAVES AMONG AMERICAN NEGROES.\n\nPROPORTION DES NEGRES LIBRES ET DES ESCLAVES EN AMERIQUE.", #set title
        subtitle = "DONE BY ATLANTA UNIVERSITY")+ #set subtitle
   theme(plot.background = element_rect(colour = NA, 
-                                       fill = "#dfd2c6"),
+                                       fill = "#dfd2c6"), #adding background colour for plot
         panel.background = element_rect(colour = "#238455",
-                                        fill = "#238455"),
+                                        fill = "#238455"), #adding background colour for panel
         panel.grid = element_blank(), #removing gridlines
         panel.border = element_rect(fill = NA, 
                                     colour = NA),
@@ -89,17 +89,17 @@ freed_slaves %>%
         axis.text.y  = element_blank(), #removing axis text
         axis.text.x = element_text(size = 14, 
                                    face = "bold", 
-                                   colour = "black"),
+                                   colour = "black"), #change axis text 
         axis.title = element_blank(), #removing axis titles
         plot.title = element_text(face = "bold",
                                   hjust = 0.5, 
-                                  size = 14), 
+                                  size = 14), #chaneg title text 
         plot.title.position = "panel",
         plot.subtitle = element_text(face = "bold",
                                      hjust = 0.5,
-                                     size = 12),
+                                     size = 12), #change subtitle text
 
-        plot.margin = margin(1, 1, 0.4, 1, "cm"))+
+        plot.margin = margin(1, 1, 0.4, 1, "cm"))+ #adjust plot margins
   ggsave(here("2021_02_16", "Outputs", "Free_Slaves.png"), 
          height = 7, width = 5)
 
