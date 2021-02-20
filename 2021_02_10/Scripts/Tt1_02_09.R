@@ -47,6 +47,6 @@ ggplot(data = studept,
   scale_x_continuous(breaks = (years))+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 90))+
-  ggsave(here("Outputs", "StudentLoans.png"), 
+  ggsave(here("2021_02_10", "Outputs", "StudentLoans.png"), 
          width = 7, 
          height = 7)
