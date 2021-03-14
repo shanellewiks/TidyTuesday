@@ -10,6 +10,7 @@ library(LaCroixColoR)
 library(extrafont)
 
 ###Load data###
+
 tuesdata <- tidytuesdayR::tt_load('2021-03-02')
 
 #view data
@@ -44,14 +45,22 @@ ads <- tuesdata$youtube %>%
              fill = brand))+ #fill by colour of brand
   geom_bar()+ #bar plot for frequency of brand per cateogry 
   coord_flip()+ #horizontal bar plot
-  facet_wrap(~category,  #plots by category 
+  facet_wrap(~category,
+             nrow = 3, #plots by category 
              scales = "free")+ #free scales
   labs(x = "Brand",
-       y = "Number of Adds")+
+       y = "Number of Adds", 
+       title = "Brand advertising strategies for the Superbowl", 
+       fill = "Brand")+
   scale_fill_manual(values = lacroix_palette("PassionFruit", n= 10, type = "continuous"))+ #Since we're looking at add, I thought this would be a fun palette, because consumerism, right?
-  theme(text = element_text(family = "Nunito", face = "bold"))+ #playing around with fonts 
-  ggsave(here("2021_03_02", "Outputs", "Superbowl_ads.png"), 
-         height = 9, 
-         width = 12)
+  theme(text = element_text(family = "Nunito", face = "bold"), 
+        plot.title = element_text(face = "bold", 
+                                  size = 23), 
+        axis.text.x = element_text(size = 12), #adjust text size for axes
+        axis.text.y = element_text(size = 11), 
+        axis.title = element_text(size = 14))+
+  ggsave(here("2021_03_2", "Outputs", "Superbowl_ads.png"), 
+         height = 7, 
+         width = 10)
 
 ads
