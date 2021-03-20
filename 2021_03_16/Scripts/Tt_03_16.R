@@ -31,8 +31,10 @@ game_time <- games %>%
   filter(gamename == c("Fallout 3", "Half-Life")) %>% 
   ggplot(mapping = aes(x = date, 
                        y = avg))+
-  geom_point(aes(colour = gamename))+
-  geom_line(aes(colour = gamename))+
+  geom_point(aes(colour = gamename), 
+             size = 2)+
+  geom_line(aes(colour = gamename), 
+            size = 1)+
   geom_dl(aes(label = gamename, colour = gamename), method = list("last.points", cex = 1.3))+
   labs(title = 'Average gametime for Halflife and Fallout 3 over time', 
        x= "Date", 
@@ -52,7 +54,7 @@ game_time <- games %>%
                                     colour = "grey"), 
         plot.title = element_text(size = 17, 
                                   colour = "grey"))+
-  ggsave(here("TidyTuesday", "2021_03_16", "Gaming_time.png"), 
+  ggsave(here("2021_03_16", "Outputs", "Gaming_time.png"), 
          height = 5, 
          width =  8)
 
