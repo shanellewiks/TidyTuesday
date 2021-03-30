@@ -22,21 +22,6 @@ issues <- tuesdata$issues
 view(issues)
 
 #join unvotes and issues
-
-vote_issues <-inner_join(unvotes, issues, by = "rcid") %>% 
-  select("country", "vote", "short_name", "issue") %>% 
-  ggplot(mapping = aes(x = vote))+
-  geom_bar()+
-  facet_wrap(~issue)+
-  labs(title = "Voting patterns for issues in the UN")
-vote_issues
-
-
-
-vetos = c("United States", "Russia", "France", "United Kingdom", "China")
-
-
-
 vote_issues_vetos <-inner_join(unvotes, issues, by = "rcid") %>% 
   select("country", "vote", "short_name", "issue") %>% 
   filter(country %in% vetos) %>% 
